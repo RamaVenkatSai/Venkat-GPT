@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "env": {
+    "API_KEY": "@api_key"
+  },
+  "builds": [
+    {
+      "src": "*.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "api/$1.js"
+    }
+  ]
+}
